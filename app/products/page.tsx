@@ -247,7 +247,7 @@ export default function AddProduct() {
 
 
 
-      <input
+      {/* <input
         type="number"
         step="0.01"
         placeholder="Price"
@@ -255,14 +255,14 @@ export default function AddProduct() {
         onChange={(e) => setPrice(e.target.value)}
         className="w-full border p-2 mb-4"
         required
-      />
+      /> */}
 
 
       
 <input
   type="number"
   step="0.01"
-  placeholder="Discounted"
+  placeholder="Price"
   value={discount}
   onChange={(e) => setDiscount(e.target.value)}
   className="w-full border p-2 mb-4"
@@ -294,8 +294,9 @@ export default function AddProduct() {
               value="collection"
               checked={productType === 'collection'}
               onChange={() => setProductType('collection')}
+              hidden
             />
-            <span>Collection</span>
+            {/* <span>Collection</span> */}
           </label>
         </div>
       </div>

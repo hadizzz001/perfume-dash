@@ -151,11 +151,11 @@ export default function ProductTable() {
           <tr className="bg-gray-100">
             <th className="border p-2">Title</th>
             <th className="border p-2">Pic</th>
-            <th className="border p-2">Discount (USD)</th>
+            <th className="border p-2">Price (USD)</th>
             <th className="border p-2">Category</th>
             <th className="border p-2">Type</th>
             <th className="border p-2">Stock</th>
-            <th className="border p-2">Colors & Qty</th>
+            {/* <th className="border p-2">Colors & Qty</th> */}
             <th className="border p-2">Actions</th>
           </tr>
         </thead>
@@ -269,30 +269,7 @@ export default function ProductTable() {
                   }
                 </td>
 
-                <td className="border p-2">
-                  {!isSingle && product.color && product.color.length > 0 ? (
-                    <ul className="space-y-1">
-                      {product.color.map((c, index) => (
-                        <li key={index}>
-                          <span className="font-semibold">{c.color}</span>
-                          {c.sizes && Array.isArray(c.sizes) ? (
-                            <ul className="ml-4 space-y-1 list-disc">
-                              {c.sizes.map((s, idx) => (
-                                <li key={idx}>
-                                  <span className="italic">{s.size}</span>: {s.qty}
-                                </li>
-                              ))}
-                            </ul>
-                          ) : (
-                            <>: {c.qty}</>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    isCollection ? 'No colors' : '—'
-                  )}
-                </td>
+              
 
 
                 <td className="border p-2">
@@ -487,13 +464,13 @@ function EditProductForm({ product, onCancel, onSave }) {
 
 
 
-      <div className="mt-4">
+      {/* <div className="mt-4">
         <label className="text-sm font-bold">Price</label>
         <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} className="w-full border p-2 mb-2" />
 
-      </div>
+      </div> */}
       <div className="mt-4">
-        <label className="text-sm font-bold">Discount</label>
+        <label className="text-sm font-bold">Price</label>
         <input type="number" value={discount} onChange={(e) => setDiscount(e.target.value)} className="w-full border p-2 mb-2" />
 
       </div>
@@ -521,8 +498,9 @@ function EditProductForm({ product, onCancel, onSave }) {
               value="collection"
               checked={type === "collection"}
               onChange={() => setType("collection")}
+              hidden={true}
             />
-            Collection
+             
           </label>
         </div>
       </div>
